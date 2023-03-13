@@ -4,12 +4,19 @@ import {toast} from 'react-hot-toast'
 
 const Context =createContext();
 
+
 export const StateContext = ({children}) => {
  const [showCart,setShowCart]=useState(false)
 const [cartItems,setCartItems]=useState([]);
 const [totalQuantities,setTotalQuantities]=useState(0);
 const [totalPrice,setTotalPrice]=useState(0);
 const [qty,setQty]=useState(1);
+const [allData,setAllData]=useState([])
+    useEffect(()=>{
+        let productData= JSON.parse(localStorage.getItem('productData'))
+        let bannerData=JSON.parse(localStorage.getItem('bannerData'))
+        setAllData([...allData,{products:productData},{bannerData:bannerData}])
+    },[])
 
 let foundProduct;
 let index;
@@ -92,7 +99,7 @@ return (
         setCartItems,
         setTotalPrice,
         setTotalQuantities,
-        setShowCart
+        setShowCart,allData
         }
         }>
         {children}

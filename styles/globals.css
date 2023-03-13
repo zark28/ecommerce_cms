@@ -32,6 +32,29 @@ width: 100%;
   margin: 6px 18px;
   position: relative;
 }
+
+.category-nav{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+  align-items: center;
+  cursor: pointer;
+  color: rgb(62, 60, 60);
+  font-size: 18px
+}
+.category-nav a{
+  padding: 10px;
+}
+.category-nav a:hover{
+  color: gray;
+  font-size: 16px;
+  transition: 0.3s;
+
+}
+
 .marquee-text{
   font-size: 29px;
   font-weight: 600;

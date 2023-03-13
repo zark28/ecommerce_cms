@@ -1,7 +1,13 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Product,FooterBanner,HeroBanner } from '../components'
+import CategoryNavigator from '../components/CategoryNavigator'
 import { client } from '../lib/client'
 const Home = ({products, bannerData}) => {
+  useEffect(() => {
+    localStorage.setItem('productData',JSON.stringify(products))
+    localStorage.setItem('bannerData',JSON.stringify(bannerData))
+  }, [products,bannerData])
+ 
   return (
   <>
   <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
@@ -14,6 +20,7 @@ const Home = ({products, bannerData}) => {
       products?.map((product)=><Product key={product._id} product={product} />)
     }
   </div>
+  <CategoryNavigator/>
   <FooterBanner footerBanner={bannerData&&bannerData[0]}/>
   </>
   )
