@@ -4,7 +4,8 @@ import { AiOutlineMinus,AiOutlinePlus,AiFillStar,AiOutlineStar } from 'react-ico
 import { Product } from '../../components'
 import { useStateContext } from '../../context/StateContext'
 const ProductDetails = ({product,products}) => {
-    const {image,name,details,price}=product
+    
+     const {image,name,details,price}=product
 
     const [index,setIndex]=useState(0)
 
@@ -96,7 +97,7 @@ export const getStaticPaths=async()=>{
     const products=await client.fetch(query);
     const paths=products.map((product)=>({
         params:{
-            slug:product.slug.current
+            slug:product?.slug?.current
         }
     }))
     return{
